@@ -4,11 +4,11 @@ import com.artemka.junit.dto.User;
 import com.artemka.junit.service.UserService;
 import org.junit.jupiter.api.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class UserServiceTest {
     private UserService userService;
     @BeforeAll
-    static void init(){
+    void init(){
         System.out.println("Before all: ");
     }
     @BeforeEach
@@ -35,7 +35,7 @@ class UserServiceTest {
         System.out.println("After each: "+this);
     }
     @AfterAll
-    static void closeConnectionPool(){
+    void closeConnectionPool(){
         System.out.println("After all: ");
     }
 }
